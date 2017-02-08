@@ -8,13 +8,48 @@
 
 /* Begin PBXBuildFile section */
 		05015D421E4247570046CA4C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05015D411E4247570046CA4C /* AppDelegate.swift */; };
-		05015D441E4247580046CA4C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05015D431E4247580046CA4C /* ViewController.swift */; };
+		05015D441E4247580046CA4C /* VanilaiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05015D431E4247580046CA4C /* VanilaiViewController.swift */; };
 		05015D471E4247590046CA4C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05015D451E4247590046CA4C /* Main.storyboard */; };
 		05015D4A1E42475B0046CA4C /* Vanilai.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05015D481E42475B0046CA4C /* Vanilai.xcdatamodeld */; };
 		05015D4C1E42475B0046CA4C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05015D4B1E42475B0046CA4C /* Assets.xcassets */; };
 		05015D4F1E42475C0046CA4C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05015D4D1E42475C0046CA4C /* LaunchScreen.storyboard */; };
 		05015D5A1E42475C0046CA4C /* VanilaiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05015D591E42475C0046CA4C /* VanilaiTests.swift */; };
 		05015D651E42475C0046CA4C /* VanilaiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05015D641E42475C0046CA4C /* VanilaiUITests.swift */; };
+		05015D751E42BA3A0046CA4C /* VanilaiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05015D741E42BA3A0046CA4C /* VanilaiConstants.swift */; };
+		05015D781E42BD190046CA4C /* Forecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05015D771E42BD190046CA4C /* Forecast.swift */; };
+		05015D7A1E42BE5D0046CA4C /* HourlyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05015D791E42BE5D0046CA4C /* HourlyForecast.swift */; };
+		05015D7C1E42BF470046CA4C /* DailyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05015D7B1E42BF470046CA4C /* DailyForecast.swift */; };
+		05015D7E1E42BFAB0046CA4C /* DailyForecastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05015D7D1E42BFAB0046CA4C /* DailyForecastData.swift */; };
+		05015D801E42C6850046CA4C /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05015D7F1E42C6850046CA4C /* Api.swift */; };
+		056579B21E4669C100E194A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 056579B11E4669C100E194A7 /* GoogleService-Info.plist */; };
+		05961A491E46705B0031400E /* DrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05961A481E46705B0031400E /* DrawerController.swift */; };
+		05961A511E4676A80031400E /* AddedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05961A501E4676A80031400E /* AddedLocation.swift */; };
+		059BF2361E4682870043FF9B /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BF2351E4682870043FF9B /* LocationSearchTable.swift */; };
+		059BF2381E46E4440043FF9B /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BF2371E46E4440043FF9B /* LocationCell.swift */; };
+		059BF23B1E479E7A0043FF9B /* NewVanilaiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BF23A1E479E7A0043FF9B /* NewVanilaiViewController.swift */; };
+		059BF2501E496E610043FF9B /* clear-day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 059BF2471E496E610043FF9B /* clear-day.jpg */; };
+		059BF2511E496E610043FF9B /* clear-night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 059BF2481E496E610043FF9B /* clear-night.jpg */; };
+		059BF2521E496E610043FF9B /* cloudy-day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 059BF2491E496E610043FF9B /* cloudy-day.jpg */; };
+		059BF2531E496E610043FF9B /* cloudy-night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 059BF24A1E496E610043FF9B /* cloudy-night.jpg */; };
+		059BF2541E496E610043FF9B /* fog.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 059BF24B1E496E610043FF9B /* fog.jpg */; };
+		059BF2551E496E610043FF9B /* rainy-day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 059BF24C1E496E610043FF9B /* rainy-day.jpg */; };
+		059BF2561E496E610043FF9B /* rainy-night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 059BF24D1E496E610043FF9B /* rainy-night.jpg */; };
+		059BF2571E496E610043FF9B /* snow-day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 059BF24E1E496E610043FF9B /* snow-day.jpg */; };
+		059BF2581E496E610043FF9B /* windy-day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 059BF24F1E496E610043FF9B /* windy-day.jpg */; };
+		059BF25A1E4976720043FF9B /* thunderstorm-weather.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 059BF2591E4976720043FF9B /* thunderstorm-weather.jpg */; };
+		059BF25C1E4976A40043FF9B /* tornado-weather.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 059BF25B1E4976A40043FF9B /* tornado-weather.jpg */; };
+		059BF2671E4992DB0043FF9B /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BF2651E4992DB0043FF9B /* Location+CoreDataClass.swift */; };
+		059BF2681E4992DB0043FF9B /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BF2661E4992DB0043FF9B /* Location+CoreDataProperties.swift */; };
+		059BF26A1E4997F50043FF9B /* PermissionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BF2691E4997F50043FF9B /* PermissionViewController.swift */; };
+		05A2C92A1E4AC00F00EFF334 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A2C9291E4AC00F00EFF334 /* UIViewController.swift */; };
+		05CE83531E42E21E001BBC81 /* ForecastAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE83521E42E21E001BBC81 /* ForecastAlert.swift */; };
+		05CE83571E456153001BBC81 /* HourlyForecastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE83561E456153001BBC81 /* HourlyForecastData.swift */; };
+		05CE835B1E459651001BBC81 /* HourlyDailyWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE835A1E459651001BBC81 /* HourlyDailyWeatherCell.swift */; };
+		05CE835E1E459701001BBC81 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE835D1E459701001BBC81 /* UIImage.swift */; };
+		05CE83601E459C61001BBC81 /* DailyWeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE835F1E459C61001BBC81 /* DailyWeatherController.swift */; };
+		3C08040CB86D3127C07C5E60 /* Pods_Vanilai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A81DC7DAAF8F8163F4BD708A /* Pods_Vanilai.framework */; };
+		ABBA43E7C66194B89B04C6D8 /* Pods_VanilaiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDFEAE7AE016A994808DD01 /* Pods_VanilaiUITests.framework */; };
+		B594BE60CA3790B3084FF7F6 /* Pods_VanilaiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151130FF36A210CD30F525B8 /* Pods_VanilaiTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +72,7 @@
 /* Begin PBXFileReference section */
 		05015D3E1E4247570046CA4C /* Vanilai.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vanilai.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05015D411E4247570046CA4C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		05015D431E4247580046CA4C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		05015D431E4247580046CA4C /* VanilaiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VanilaiViewController.swift; sourceTree = "<group>"; };
 		05015D461E4247590046CA4C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05015D491E42475B0046CA4C /* Vanilai.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Vanilai.xcdatamodel; sourceTree = "<group>"; };
 		05015D4B1E42475B0046CA4C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +84,48 @@
 		05015D601E42475C0046CA4C /* VanilaiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VanilaiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05015D641E42475C0046CA4C /* VanilaiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VanilaiUITests.swift; sourceTree = "<group>"; };
 		05015D661E42475C0046CA4C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05015D741E42BA3A0046CA4C /* VanilaiConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VanilaiConstants.swift; sourceTree = "<group>"; };
+		05015D771E42BD190046CA4C /* Forecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Forecast.swift; sourceTree = "<group>"; };
+		05015D791E42BE5D0046CA4C /* HourlyForecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyForecast.swift; sourceTree = "<group>"; };
+		05015D7B1E42BF470046CA4C /* DailyForecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyForecast.swift; sourceTree = "<group>"; };
+		05015D7D1E42BFAB0046CA4C /* DailyForecastData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyForecastData.swift; sourceTree = "<group>"; };
+		05015D7F1E42C6850046CA4C /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		056579B11E4669C100E194A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		05961A481E46705B0031400E /* DrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerController.swift; sourceTree = "<group>"; };
+		05961A501E4676A80031400E /* AddedLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedLocation.swift; sourceTree = "<group>"; };
+		059BF2341E467B380043FF9B /* Vanilai-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vanilai-Bridging-Header.h"; sourceTree = "<group>"; };
+		059BF2351E4682870043FF9B /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		059BF2371E46E4440043FF9B /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		059BF23A1E479E7A0043FF9B /* NewVanilaiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVanilaiViewController.swift; sourceTree = "<group>"; };
+		059BF2471E496E610043FF9B /* clear-day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "clear-day.jpg"; sourceTree = "<group>"; };
+		059BF2481E496E610043FF9B /* clear-night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "clear-night.jpg"; sourceTree = "<group>"; };
+		059BF2491E496E610043FF9B /* cloudy-day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cloudy-day.jpg"; sourceTree = "<group>"; };
+		059BF24A1E496E610043FF9B /* cloudy-night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "cloudy-night.jpg"; sourceTree = "<group>"; };
+		059BF24B1E496E610043FF9B /* fog.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fog.jpg; sourceTree = "<group>"; };
+		059BF24C1E496E610043FF9B /* rainy-day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "rainy-day.jpg"; sourceTree = "<group>"; };
+		059BF24D1E496E610043FF9B /* rainy-night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "rainy-night.jpg"; sourceTree = "<group>"; };
+		059BF24E1E496E610043FF9B /* snow-day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "snow-day.jpg"; sourceTree = "<group>"; };
+		059BF24F1E496E610043FF9B /* windy-day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "windy-day.jpg"; sourceTree = "<group>"; };
+		059BF2591E4976720043FF9B /* thunderstorm-weather.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "thunderstorm-weather.jpg"; sourceTree = "<group>"; };
+		059BF25B1E4976A40043FF9B /* tornado-weather.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "tornado-weather.jpg"; sourceTree = "<group>"; };
+		059BF2651E4992DB0043FF9B /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
+		059BF2661E4992DB0043FF9B /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		059BF2691E4997F50043FF9B /* PermissionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionViewController.swift; sourceTree = "<group>"; };
+		05A2C9291E4AC00F00EFF334 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		05CE83521E42E21E001BBC81 /* ForecastAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForecastAlert.swift; sourceTree = "<group>"; };
+		05CE83561E456153001BBC81 /* HourlyForecastData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyForecastData.swift; sourceTree = "<group>"; };
+		05CE835A1E459651001BBC81 /* HourlyDailyWeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyDailyWeatherCell.swift; sourceTree = "<group>"; };
+		05CE835D1E459701001BBC81 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		05CE835F1E459C61001BBC81 /* DailyWeatherController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyWeatherController.swift; sourceTree = "<group>"; };
+		151130FF36A210CD30F525B8 /* Pods_VanilaiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VanilaiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28ED9AFAEFD85CAFC03B8C24 /* Pods-Vanilai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vanilai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vanilai/Pods-Vanilai.debug.xcconfig"; sourceTree = "<group>"; };
+		2CDFEAE7AE016A994808DD01 /* Pods_VanilaiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VanilaiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87E8FD556103C45236032F3F /* Pods-VanilaiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanilaiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VanilaiTests/Pods-VanilaiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A4EA994E25243CA1126A190B /* Pods-Vanilai.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vanilai.release.xcconfig"; path = "Pods/Target Support Files/Pods-Vanilai/Pods-Vanilai.release.xcconfig"; sourceTree = "<group>"; };
+		A81DC7DAAF8F8163F4BD708A /* Pods_Vanilai.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Vanilai.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD283C5F7C18625CB4C5E91D /* Pods-VanilaiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanilaiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VanilaiTests/Pods-VanilaiTests.release.xcconfig"; sourceTree = "<group>"; };
+		CB6FB151AACCD2B9662F9DD7 /* Pods-VanilaiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanilaiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VanilaiUITests/Pods-VanilaiUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D7E9EA08AEE897B95B1A559A /* Pods-VanilaiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VanilaiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-VanilaiUITests/Pods-VanilaiUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +133,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C08040CB86D3127C07C5E60 /* Pods_Vanilai.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B594BE60CA3790B3084FF7F6 /* Pods_VanilaiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABBA43E7C66194B89B04C6D8 /* Pods_VanilaiUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +163,8 @@
 				05015D581E42475C0046CA4C /* VanilaiTests */,
 				05015D631E42475C0046CA4C /* VanilaiUITests */,
 				05015D3F1E4247570046CA4C /* Products */,
+				DE37E8B5BF2D30F0273B18B4 /* Pods */,
+				DD59F7B4A866BCD65A78B182 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,13 +181,15 @@
 		05015D401E4247570046CA4C /* Vanilai */ = {
 			isa = PBXGroup;
 			children = (
-				05015D411E4247570046CA4C /* AppDelegate.swift */,
-				05015D431E4247580046CA4C /* ViewController.swift */,
-				05015D451E4247590046CA4C /* Main.storyboard */,
-				05015D4B1E42475B0046CA4C /* Assets.xcassets */,
-				05015D4D1E42475C0046CA4C /* LaunchScreen.storyboard */,
-				05015D501E42475C0046CA4C /* Info.plist */,
-				05015D481E42475B0046CA4C /* Vanilai.xcdatamodeld */,
+				059BF2441E480DE10043FF9B /* Images */,
+				05961A4A1E4672480031400E /* Model */,
+				05CE835C1E4596B0001BBC81 /* Extension */,
+				05CE83581E4595BC001BBC81 /* Controller */,
+				05015D761E42BCFF0046CA4C /* Forecast */,
+				05015D731E42B9230046CA4C /* Assets */,
+				05015D721E42B8FC0046CA4C /* Supporting Files */,
+				05015D7F1E42C6850046CA4C /* Api.swift */,
+				059BF2341E467B380043FF9B /* Vanilai-Bridging-Header.h */,
 			);
 			path = Vanilai;
 			sourceTree = "<group>";
@@ -128,6 +212,124 @@
 			path = VanilaiUITests;
 			sourceTree = "<group>";
 		};
+		05015D721E42B8FC0046CA4C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05015D411E4247570046CA4C /* AppDelegate.swift */,
+				05015D501E42475C0046CA4C /* Info.plist */,
+				056579B11E4669C100E194A7 /* GoogleService-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05015D731E42B9230046CA4C /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				05015D451E4247590046CA4C /* Main.storyboard */,
+				05015D4B1E42475B0046CA4C /* Assets.xcassets */,
+				05015D4D1E42475C0046CA4C /* LaunchScreen.storyboard */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		05015D761E42BCFF0046CA4C /* Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				05015D741E42BA3A0046CA4C /* VanilaiConstants.swift */,
+				05015D771E42BD190046CA4C /* Forecast.swift */,
+				05015D791E42BE5D0046CA4C /* HourlyForecast.swift */,
+				05015D7B1E42BF470046CA4C /* DailyForecast.swift */,
+				05015D7D1E42BFAB0046CA4C /* DailyForecastData.swift */,
+				05CE83521E42E21E001BBC81 /* ForecastAlert.swift */,
+				05CE83561E456153001BBC81 /* HourlyForecastData.swift */,
+			);
+			name = Forecast;
+			sourceTree = "<group>";
+		};
+		05961A4A1E4672480031400E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				059BF2651E4992DB0043FF9B /* Location+CoreDataClass.swift */,
+				059BF2661E4992DB0043FF9B /* Location+CoreDataProperties.swift */,
+				05015D481E42475B0046CA4C /* Vanilai.xcdatamodeld */,
+				05961A501E4676A80031400E /* AddedLocation.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		059BF2441E480DE10043FF9B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				059BF2591E4976720043FF9B /* thunderstorm-weather.jpg */,
+				059BF2471E496E610043FF9B /* clear-day.jpg */,
+				059BF2481E496E610043FF9B /* clear-night.jpg */,
+				059BF2491E496E610043FF9B /* cloudy-day.jpg */,
+				059BF24A1E496E610043FF9B /* cloudy-night.jpg */,
+				059BF24B1E496E610043FF9B /* fog.jpg */,
+				059BF25B1E4976A40043FF9B /* tornado-weather.jpg */,
+				059BF24C1E496E610043FF9B /* rainy-day.jpg */,
+				059BF24D1E496E610043FF9B /* rainy-night.jpg */,
+				059BF24E1E496E610043FF9B /* snow-day.jpg */,
+				059BF24F1E496E610043FF9B /* windy-day.jpg */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		05CE83581E4595BC001BBC81 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				05CE83591E4595C5001BBC81 /* cell */,
+				05015D431E4247580046CA4C /* VanilaiViewController.swift */,
+				05CE835F1E459C61001BBC81 /* DailyWeatherController.swift */,
+				05961A481E46705B0031400E /* DrawerController.swift */,
+				059BF2351E4682870043FF9B /* LocationSearchTable.swift */,
+				059BF23A1E479E7A0043FF9B /* NewVanilaiViewController.swift */,
+				059BF2691E4997F50043FF9B /* PermissionViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		05CE83591E4595C5001BBC81 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				05CE835A1E459651001BBC81 /* HourlyDailyWeatherCell.swift */,
+				059BF2371E46E4440043FF9B /* LocationCell.swift */,
+			);
+			name = cell;
+			sourceTree = "<group>";
+		};
+		05CE835C1E4596B0001BBC81 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				05CE835D1E459701001BBC81 /* UIImage.swift */,
+				05A2C9291E4AC00F00EFF334 /* UIViewController.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		DD59F7B4A866BCD65A78B182 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A81DC7DAAF8F8163F4BD708A /* Pods_Vanilai.framework */,
+				151130FF36A210CD30F525B8 /* Pods_VanilaiTests.framework */,
+				2CDFEAE7AE016A994808DD01 /* Pods_VanilaiUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE37E8B5BF2D30F0273B18B4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28ED9AFAEFD85CAFC03B8C24 /* Pods-Vanilai.debug.xcconfig */,
+				A4EA994E25243CA1126A190B /* Pods-Vanilai.release.xcconfig */,
+				87E8FD556103C45236032F3F /* Pods-VanilaiTests.debug.xcconfig */,
+				AD283C5F7C18625CB4C5E91D /* Pods-VanilaiTests.release.xcconfig */,
+				CB6FB151AACCD2B9662F9DD7 /* Pods-VanilaiUITests.debug.xcconfig */,
+				D7E9EA08AEE897B95B1A559A /* Pods-VanilaiUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +337,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05015D691E42475C0046CA4C /* Build configuration list for PBXNativeTarget "Vanilai" */;
 			buildPhases = (
+				6539A1D452A94DB7C5706561 /* [CP] Check Pods Manifest.lock */,
 				05015D3A1E4247570046CA4C /* Sources */,
 				05015D3B1E4247570046CA4C /* Frameworks */,
 				05015D3C1E4247570046CA4C /* Resources */,
+				C16E42A6422A04E340F97593 /* [CP] Embed Pods Frameworks */,
+				E8E8FC300785F3EC4FD2E69D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +357,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05015D6C1E42475C0046CA4C /* Build configuration list for PBXNativeTarget "VanilaiTests" */;
 			buildPhases = (
+				DA25B9B1DAEA6AF83B36A53A /* [CP] Check Pods Manifest.lock */,
 				05015D511E42475C0046CA4C /* Sources */,
 				05015D521E42475C0046CA4C /* Frameworks */,
 				05015D531E42475C0046CA4C /* Resources */,
+				C877D1FBE5FB5592405D242E /* [CP] Embed Pods Frameworks */,
+				71D9213140B01A0CE6BDB0A8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +378,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 05015D6F1E42475C0046CA4C /* Build configuration list for PBXNativeTarget "VanilaiUITests" */;
 			buildPhases = (
+				0672076B969495C88D669383 /* [CP] Check Pods Manifest.lock */,
 				05015D5C1E42475C0046CA4C /* Sources */,
 				05015D5D1E42475C0046CA4C /* Frameworks */,
 				05015D5E1E42475C0046CA4C /* Resources */,
+				A2B210A7CC3AFB8564D2D0E9 /* [CP] Embed Pods Frameworks */,
+				5678CEE4A2E942A372F5BF70 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -238,9 +449,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				059BF2561E496E610043FF9B /* rainy-night.jpg in Resources */,
+				059BF25C1E4976A40043FF9B /* tornado-weather.jpg in Resources */,
+				059BF2521E496E610043FF9B /* cloudy-day.jpg in Resources */,
 				05015D4F1E42475C0046CA4C /* LaunchScreen.storyboard in Resources */,
+				059BF2501E496E610043FF9B /* clear-day.jpg in Resources */,
+				059BF2541E496E610043FF9B /* fog.jpg in Resources */,
+				059BF2551E496E610043FF9B /* rainy-day.jpg in Resources */,
 				05015D4C1E42475B0046CA4C /* Assets.xcassets in Resources */,
+				059BF2581E496E610043FF9B /* windy-day.jpg in Resources */,
 				05015D471E4247590046CA4C /* Main.storyboard in Resources */,
+				059BF2511E496E610043FF9B /* clear-night.jpg in Resources */,
+				059BF2531E496E610043FF9B /* cloudy-night.jpg in Resources */,
+				059BF2571E496E610043FF9B /* snow-day.jpg in Resources */,
+				056579B21E4669C100E194A7 /* GoogleService-Info.plist in Resources */,
+				059BF25A1E4976720043FF9B /* thunderstorm-weather.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,14 +483,172 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0672076B969495C88D669383 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5678CEE4A2E942A372F5BF70 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VanilaiUITests/Pods-VanilaiUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6539A1D452A94DB7C5706561 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		71D9213140B01A0CE6BDB0A8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VanilaiTests/Pods-VanilaiTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A2B210A7CC3AFB8564D2D0E9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VanilaiUITests/Pods-VanilaiUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C16E42A6422A04E340F97593 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vanilai/Pods-Vanilai-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C877D1FBE5FB5592405D242E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VanilaiTests/Pods-VanilaiTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA25B9B1DAEA6AF83B36A53A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E8E8FC300785F3EC4FD2E69D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Vanilai/Pods-Vanilai-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		05015D3A1E4247570046CA4C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05015D441E4247580046CA4C /* ViewController.swift in Sources */,
+				05015D801E42C6850046CA4C /* Api.swift in Sources */,
+				05CE835B1E459651001BBC81 /* HourlyDailyWeatherCell.swift in Sources */,
+				05015D7C1E42BF470046CA4C /* DailyForecast.swift in Sources */,
+				05961A511E4676A80031400E /* AddedLocation.swift in Sources */,
+				05CE83601E459C61001BBC81 /* DailyWeatherController.swift in Sources */,
+				05015D441E4247580046CA4C /* VanilaiViewController.swift in Sources */,
+				05A2C92A1E4AC00F00EFF334 /* UIViewController.swift in Sources */,
 				05015D421E4247570046CA4C /* AppDelegate.swift in Sources */,
+				05015D751E42BA3A0046CA4C /* VanilaiConstants.swift in Sources */,
+				059BF2681E4992DB0043FF9B /* Location+CoreDataProperties.swift in Sources */,
+				059BF2671E4992DB0043FF9B /* Location+CoreDataClass.swift in Sources */,
+				059BF23B1E479E7A0043FF9B /* NewVanilaiViewController.swift in Sources */,
+				05015D7A1E42BE5D0046CA4C /* HourlyForecast.swift in Sources */,
 				05015D4A1E42475B0046CA4C /* Vanilai.xcdatamodeld in Sources */,
+				05CE83531E42E21E001BBC81 /* ForecastAlert.swift in Sources */,
+				05015D7E1E42BFAB0046CA4C /* DailyForecastData.swift in Sources */,
+				059BF2361E4682870043FF9B /* LocationSearchTable.swift in Sources */,
+				05961A491E46705B0031400E /* DrawerController.swift in Sources */,
+				059BF26A1E4997F50043FF9B /* PermissionViewController.swift in Sources */,
+				05015D781E42BD190046CA4C /* Forecast.swift in Sources */,
+				05CE835E1E459701001BBC81 /* UIImage.swift in Sources */,
+				059BF2381E46E4440043FF9B /* LocationCell.swift in Sources */,
+				05CE83571E456153001BBC81 /* HourlyForecastData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +798,7 @@
 		};
 		05015D6A1E42475C0046CA4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28ED9AFAEFD85CAFC03B8C24 /* Pods-Vanilai.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XVKRTN7XC3;
@@ -430,6 +812,7 @@
 		};
 		05015D6B1E42475C0046CA4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4EA994E25243CA1126A190B /* Pods-Vanilai.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XVKRTN7XC3;
@@ -443,6 +826,7 @@
 		};
 		05015D6D1E42475C0046CA4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87E8FD556103C45236032F3F /* Pods-VanilaiTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -458,6 +842,7 @@
 		};
 		05015D6E1E42475C0046CA4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD283C5F7C18625CB4C5E91D /* Pods-VanilaiTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -473,6 +858,7 @@
 		};
 		05015D701E42475C0046CA4C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB6FB151AACCD2B9662F9DD7 /* Pods-VanilaiUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = XVKRTN7XC3;
@@ -487,6 +873,7 @@
 		};
 		05015D711E42475C0046CA4C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7E9EA08AEE897B95B1A559A /* Pods-VanilaiUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = XVKRTN7XC3;
@@ -518,6 +905,7 @@
 				05015D6B1E42475C0046CA4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05015D6C1E42475C0046CA4C /* Build configuration list for PBXNativeTarget "VanilaiTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +914,7 @@
 				05015D6E1E42475C0046CA4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		05015D6F1E42475C0046CA4C /* Build configuration list for PBXNativeTarget "VanilaiUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +923,7 @@
 				05015D711E42475C0046CA4C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

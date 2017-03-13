@@ -2,11 +2,12 @@
 //  FutureWeatherController.swift
 //  Vanilai
 //
-//  Created by Badri Narayanan Ravichandran Sathya on 2/3/17.
-//  Copyright © 2017 Badri Narayanan Ravichandran Sathya. All rights reserved.
+//  Created by Ravichandran Ramachandran on 2/3/17.
+//  Copyright © 2017 Ravichandran Ramachandran. All rights reserved.
 //
 
 import UIKit
+import GoogleMobileAds
 
 class DailyWeatherController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,15 +19,20 @@ class DailyWeatherController: UIViewController, UITableViewDelegate, UITableView
     fileprivate var hourlyForecast: HourlyForecast!
     var forecastType: String!
     
-    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var bannerAd: GADBannerView!
     @IBOutlet weak var weatherSummary: UILabel!
     
     @IBOutlet weak var weatherSummaryImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = location
+        
+        bannerAd.adUnitID = VanilaiConstants.MOBILE_ADS_UNIT_ID
+        bannerAd.rootViewController = self
+        bannerAd.load(GADRequest())
+        
         forecastTableView.delegate = self
         forecastTableView.dataSource = self
-        locationLabel.text = location
         navigationController?.navigationItem.backBarButtonItem?.title = "Vanilai"
         var imageView: UIImageView
         if forecastType == "daily" {
@@ -84,6 +90,8 @@ class DailyWeatherController: UIViewController, UITableViewDelegate, UITableView
             
             cell.day.text = dateFormatter.string(from: forecastCell.currentTime)
         }
+        
+        cell.selectionStyle = .none
         
         return cell
     }

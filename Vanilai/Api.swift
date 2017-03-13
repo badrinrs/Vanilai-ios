@@ -2,20 +2,23 @@
 //  Api.swift
 //  Vanilai
 //
-//  Created by Badri Narayanan Ravichandran Sathya on 2/1/17.
-//  Copyright © 2017 Badri Narayanan Ravichandran Sathya. All rights reserved.
+//  Created by Ravichandran Ramachandran on 2/1/17.
+//  Copyright © 2017 Ravichandran Ramachandran. All rights reserved.
 //
 
 import Foundation
 import Alamofire
 import SwiftyJSON
 import MapKit
+import Firebase
 
 class Api {
     
     func getForecast(latitude: Double, longitude: Double, completion: @escaping(_ forecast: Forecast?, _ error: NSError?) -> ()) {
         let url = buildUrl(latitude: latitude, longitude: longitude)
         Alamofire.request(url).responseJSON { (response) in
+            FIRCrashMessage("Forecast Url: \(response.request?.url)")
+            FIRCrashMessage("Response Result: \(response.result.debugDescription)")
             switch(response.result) {
             case .success(let data):
                 let json = JSON(data)
@@ -24,10 +27,10 @@ class Api {
                 var hourlyForecasts = [HourlyForecastData]()
                 if let alerts = json["alerts"].array {
                     for alert in alerts {
-                        let alertTitle = alert["title"].stringValue
-                        let description = alert["description"].stringValue
-                        let expiry = alert["expiry"].int64Value
-                        forecastAlerts.append(ForecastAlert(alertTitle: alertTitle, alertDescription: description, expiry: Date(timeIntervalSince1970: TimeInterval(expiry))))
+                        let alertTitle = Util.toString(string: alert["title"].string)
+                        let description = Util.toString(string: alert["description"].string)
+                        let expiry = Util.toDate(int64Value: alert["expiry"].int64)
+                        forecastAlerts.append(ForecastAlert(alertTitle: alertTitle, alertDescription: description, expiry: expiry))
                     }
                 }
                 let daily = json["daily"]
@@ -35,30 +38,30 @@ class Api {
                 let dailyIcon = daily["icon"].string
                 if let data = daily["data"].array {
                     for dailyData in data {
-                        let time = dailyData["time"].int64Value
-                        let sunsetTime = dailyData["sunsetTime"].int64Value
-                        let sunriseTime = dailyData["sunriseTime"].int64Value
-                        let summary = dailyData["summary"].stringValue
-                        let icon = dailyData["icon"].stringValue
-                        let minTemperature = dailyData["temperatureMin"].doubleValue
-                        let maxTemperature = dailyData["temperatureMax"].doubleValue
-                        let humidity = dailyData["hmidity"].doubleValue
-                        let precipProbability = dailyData["precipProbability"].doubleValue
-                        let minTemperatureTime = dailyData["temperatureMinTime"].int64Value
-                        let maxTemperatureTime = dailyData["temperatureMaxTime"].int64Value
-                        let apparentMaxTemperature = dailyData["apparentTemperatureMax"].doubleValue
-                        let apparentMinTemperature = dailyData["apparentTemperatureMin"].doubleValue
-                        let apparentMinTemperatureTime = dailyData["apparentTemperatureMinTime"].int64Value
-                        let apparentMaxTemperatureTime = dailyData["apparentTemperatureMaxTime"].int64Value
-                        let windSpeed = dailyData["windSpeed"].doubleValue
-                        let pressure = dailyData["pressure"].doubleValue
-                        let precipIntensity = dailyData["precipIntensity"].doubleValue
-                        let dewPoint = dailyData["dewPoint"].doubleValue
-                        let precipType = dailyData["precipType"].stringValue
-                        let windBearing = dailyData["windBearing"].intValue
-                        let cloudCover = dailyData["cloudCover"].doubleValue
-                        let ozone = dailyData["ozone"].doubleValue
-                        dailyForecastData.append(DailyForecastData(time: Date(timeIntervalSince1970: TimeInterval(time)), summary: summary, icon: icon, sunriseTime: Date(timeIntervalSince1970: TimeInterval(sunriseTime)), sunsetTime: Date(timeIntervalSince1970: TimeInterval(sunsetTime)), precipProbability: precipProbability, minTemperature: minTemperature, minTemperatureTime: Date(timeIntervalSince1970: TimeInterval(minTemperatureTime)), maxTemperature: maxTemperature, maxTemperatureTime: Date(timeIntervalSince1970: TimeInterval(maxTemperatureTime)), apparentMinTemperature: apparentMinTemperature, apparentMinTemperatureTime: Date(timeIntervalSince1970: TimeInterval(apparentMinTemperatureTime)), apparentMaxTemperature: apparentMaxTemperature, apparentMaxTemperatureTime: Date(timeIntervalSince1970: TimeInterval(apparentMaxTemperatureTime)), humidity: humidity, windSpeed: windSpeed, pressure: pressure, precipIntensity: precipIntensity, dewPoint: dewPoint, precipType: precipType, windBearing: windBearing, cloudCover: cloudCover, ozone: ozone))
+                        let time = Util.toDate(int64Value: dailyData["time"].int64)
+                        let sunsetTime = Util.toDate(int64Value: dailyData["sunsetTime"].int64)
+                        let sunriseTime = Util.toDate(int64Value: dailyData["sunriseTime"].int64)
+                        let summary = Util.toString(string: dailyData["summary"].string)
+                        let icon = Util.toString(string: dailyData["icon"].string)
+                        let minTemperature = Util.toDouble(double: dailyData["temperatureMin"].double)
+                        let maxTemperature = Util.toDouble(double: dailyData["temperatureMax"].double)
+                        let humidity = Util.toDouble(double: dailyData["hmidity"].double)
+                        let precipProbability = Util.toDouble(double: dailyData["precipProbability"].double)
+                        let minTemperatureTime = Util.toDate(int64Value: dailyData["temperatureMinTime"].int64)
+                        let maxTemperatureTime = Util.toDate(int64Value: dailyData["temperatureMaxTime"].int64)
+                        let apparentMaxTemperature = Util.toDouble(double: dailyData["apparentTemperatureMax"].double)
+                        let apparentMinTemperature = Util.toDouble(double: dailyData["apparentTemperatureMin"].double)
+                        let apparentMinTemperatureTime = Util.toDate(int64Value: dailyData["apparentTemperatureMinTime"].int64)
+                        let apparentMaxTemperatureTime = Util.toDate(int64Value: dailyData["apparentTemperatureMaxTime"].int64)
+                        let windSpeed = Util.toDouble(double: dailyData["windSpeed"].double)
+                        let pressure = Util.toDouble(double: dailyData["pressure"].double)
+                        let precipIntensity = Util.toDouble(double: dailyData["precipIntensity"].double)
+                        let dewPoint = Util.toDouble(double: dailyData["dewPoint"].double)
+                        let precipType = Util.toString(string: dailyData["precipType"].string)
+                        let windBearing = Util.toInt(int: dailyData["windBearing"].int)
+                        let cloudCover = Util.toDouble(double: dailyData["cloudCover"].double)
+                        let ozone = Util.toDouble(double: dailyData["ozone"].double)
+                        dailyForecastData.append(DailyForecastData(time: time, summary: summary, icon: icon, sunriseTime: sunriseTime, sunsetTime: sunsetTime, precipProbability: precipProbability, minTemperature: minTemperature, minTemperatureTime: minTemperatureTime, maxTemperature: maxTemperature, maxTemperatureTime: maxTemperatureTime, apparentMinTemperature: apparentMinTemperature, apparentMinTemperatureTime: apparentMinTemperatureTime, apparentMaxTemperature: apparentMaxTemperature, apparentMaxTemperatureTime: apparentMaxTemperatureTime, humidity: humidity, windSpeed: windSpeed, pressure: pressure, precipIntensity: precipIntensity, dewPoint: dewPoint, precipType: precipType, windBearing: windBearing, cloudCover: cloudCover, ozone: ozone))
                     }
                 }
                 let dailyForecast = DailyForecast(summary: dailySummary!, icon: dailyIcon!, dailyForecastData: dailyForecastData)
@@ -67,45 +70,45 @@ class Api {
                 let hourlyIcon = hourly["icon"].stringValue
                 let hourlyData = hourly["data"].arrayValue
                 for hourlyForecast in hourlyData {
-                    let temperature = hourlyForecast["temperature"].doubleValue
-                    let windSpeed = hourlyForecast["windSpeed"].doubleValue
-                    let humidity = hourlyForecast["humidity"].doubleValue
-                    let windBearing = hourlyForecast["windBearing"].intValue
-                    let precipType = hourlyForecast["precipType"].stringValue
-                    let cloudCover = hourlyForecast["cloudCover"].doubleValue
-                    let time = hourlyForecast["time"].int64Value
-                    let dewPoint = hourlyForecast["dewPoint"].doubleValue
-                    let summary = hourlyForecast["summary"].stringValue
-                    let icon = hourlyForecast["icon"].stringValue
-                    let precipIntensity = hourlyForecast["precipIntensity"].doubleValue
-                    let visibility = hourlyForecast["visibility"].doubleValue
-                    let ozone = hourlyForecast["ozone"].doubleValue
-                    let apparentTemperature = hourlyForecast["apparentTemperature"].doubleValue
-                    let pressure = hourlyForecast["pressure"].doubleValue
-                    let precipProbability = hourlyForecast["precipProbability"].doubleValue
-                    hourlyForecasts.append(HourlyForecastData(currentTime: Date(timeIntervalSince1970: TimeInterval(time)), summary: summary, icon: icon, temperature: temperature, humidity: humidity, precipProbability: precipProbability, apparentTemperature: apparentTemperature, windSpeed: windSpeed, windBearing: windBearing, precipType: precipType, cloudCover: cloudCover, dewPoint: dewPoint, precipIntensity: precipIntensity, visibility: visibility, ozone: ozone, pressure: pressure))
+                    let temperature = Util.toDouble(double: hourlyForecast["temperature"].double)
+                    let windSpeed = Util.toDouble(double: hourlyForecast["windSpeed"].double)
+                    let humidity = Util.toDouble(double: hourlyForecast["humidity"].double)
+                    let windBearing = Util.toInt(int: hourlyForecast["windBearing"].int)
+                    let precipType = Util.toString(string: hourlyForecast["precipType"].string)
+                    let cloudCover = Util.toDouble(double: hourlyForecast["cloudCover"].double)
+                    let time = Util.toDate(int64Value: hourlyForecast["time"].int64)
+                    let dewPoint = Util.toDouble(double: hourlyForecast["dewPoint"].double)
+                    let summary = Util.toString(string: hourlyForecast["summary"].string)
+                    let icon = Util.toString(string: hourlyForecast["icon"].string)
+                    let precipIntensity = Util.toDouble(double: hourlyForecast["precipIntensity"].double)
+                    let visibility = Util.toDouble(double: hourlyForecast["visibility"].double)
+                    let ozone = Util.toDouble(double: hourlyForecast["ozone"].double)
+                    let apparentTemperature = Util.toDouble(double: hourlyForecast["apparentTemperature"].double)
+                    let pressure = Util.toDouble(double: hourlyForecast["pressure"].double)
+                    let precipProbability = Util.toDouble(double: hourlyForecast["precipProbability"].double)
+                    hourlyForecasts.append(HourlyForecastData(currentTime: time, summary: summary, icon: icon, temperature: temperature, humidity: humidity, precipProbability: precipProbability, apparentTemperature: apparentTemperature, windSpeed: windSpeed, windBearing: windBearing, precipType: precipType, cloudCover: cloudCover, dewPoint: dewPoint, precipIntensity: precipIntensity, visibility: visibility, ozone: ozone, pressure: pressure))
                 }
                 let hourlyForecast = HourlyForecast(summary: hourlySummary, icon: hourlyIcon, hourlyForecasts: hourlyForecasts)
                 let currently = json["currently"]
-                let temperature = currently["temperature"].doubleValue
-                let windSpeed = currently["windSpeed"].doubleValue
-                let humidity = currently["humidity"].doubleValue
-                let cloudCover = currently["cloudCover"].doubleValue
-                let windBearning = currently["windBearing"].intValue
-                let time = currently["time"].int64Value
-                let dewPoint = currently["dewPoint"].doubleValue
-                let summary = currently["summary"].stringValue
-                let icon = currently["icon"].stringValue
-                let precipIntensity = currently["precipIntensity"].doubleValue
-                let visibility = currently["visibility"].doubleValue
-                let nearestStormBearing = currently["nearestStormBearing"].intValue
-                let apparentTemperature = currently["apparentTemperature"].doubleValue
-                let pressure = currently["pressure"].doubleValue
-                let precipProbability = currently["precipProbability"].doubleValue
-                let nearestStormDistance = currently["nearestStormDistance"].intValue
+                let temperature = Util.toDouble(double: currently["temperature"].double)
+                let windSpeed = Util.toDouble(double: currently["windSpeed"].double)
+                let humidity = Util.toDouble(double: currently["humidity"].double)
+                let cloudCover = Util.toDouble(double: currently["cloudCover"].doubleValue)
+                let windBearning = Util.toInt(int: currently["windBearing"].int)
+                let time = Util.toDate(int64Value: currently["time"].int64)
+                let dewPoint = Util.toDouble(double: currently["dewPoint"].double)
+                let summary = Util.toString(string: currently["summary"].string)
+                let icon = Util.toString(string: currently["icon"].string)
+                let precipIntensity = Util.toDouble(double: currently["precipIntensity"].double)
+                let visibility = Util.toDouble(double: currently["visibility"].double)
+                let nearestStormBearing = Util.toInt(int: currently["nearestStormBearing"].int)
+                let apparentTemperature = Util.toDouble(double: currently["apparentTemperature"].double)
+                let pressure = Util.toDouble(double: currently["pressure"].double)
+                let precipProbability = Util.toDouble(double: currently["precipProbability"].double)
+                let nearestStormDistance = Util.toInt(int: currently["nearestStormDistance"].int)
                 let ozone = currently["ozone"].doubleValue
                 
-                let forecast = Forecast(currentTime: Date(timeIntervalSince1970: TimeInterval(time)), summary: summary, icon: icon, temperature: temperature, humidity: humidity, precipProbability: precipProbability, apparentTemperature: apparentTemperature, windSpeed: windSpeed, windBearing: windBearning, cloudCover: cloudCover, dewPoint: dewPoint, nearestStormBearing: nearestStormBearing, nearestStormDistance: nearestStormDistance, precipIntensity: precipIntensity, visibility: visibility, ozone: ozone, pressure: pressure, dailyForecast: dailyForecast, hourlyForecast: hourlyForecast, alert: forecastAlerts)
+                let forecast = Forecast(currentTime: time, summary: summary, icon: icon, temperature: temperature, humidity: humidity, precipProbability: precipProbability, apparentTemperature: apparentTemperature, windSpeed: windSpeed, windBearing: windBearning, cloudCover: cloudCover, dewPoint: dewPoint, nearestStormBearing: nearestStormBearing, nearestStormDistance: nearestStormDistance, precipIntensity: precipIntensity, visibility: visibility, ozone: ozone, pressure: pressure, dailyForecast: dailyForecast, hourlyForecast: hourlyForecast, alert: forecastAlerts)
                 completion(forecast, nil)
                 break
             case .failure(let error):
@@ -126,5 +129,65 @@ class Api {
         url.append(VanilaiConstants.PATH_DIVIDER)
         url.append("\(latitude),\(longitude)")
         return url
+    }
+    
+    func buildEarthquakeUrl(latitude: Double, longitude: Double) -> String {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = VanilaiConstants.PROTOCOL
+        urlComponents.host = VanilaiConstants.EARTHQUAKE_HOST
+        urlComponents.path = VanilaiConstants.EARTHQUAKE_PATH
+        let formatQueryItem = URLQueryItem(name: "format", value: "geojson")
+        let latitudeQueryItem = URLQueryItem(name: "latitude", value: "\(latitude)")
+        let longitudeQueryItem = URLQueryItem(name: "longitude", value: "\(longitude)")
+        let maxRadiusQueryItem = URLQueryItem(name: "maxradiuskm", value: VanilaiConstants.MAX_RADIUS)
+        let limitQueryItem = URLQueryItem(name: "limit", value: "20")
+        urlComponents.queryItems = [formatQueryItem, latitudeQueryItem, longitudeQueryItem, maxRadiusQueryItem, limitQueryItem]
+        return (urlComponents.url?.absoluteString)!
+    }
+    
+    func getEarthquakes(latitude: Double, longitude: Double, completion: @escaping(_ earthquakes: [Earthquake]?, _ error: Error?) -> ()) {
+        Alamofire.request(buildEarthquakeUrl(latitude: latitude, longitude: longitude)).responseJSON { (response) in
+            FIRCrashMessage("Forecast Url: \(response.request?.url)")
+            FIRCrashMessage("Response Result: \(response.result.debugDescription)")
+            switch response.result {
+            case .success(let data):
+                let json = JSON(data)
+                let features = json["features"].array
+                if let features = features {
+                    var earthquakes = [Earthquake]()
+                    for feature in features {
+                        let properties = feature["properties"]
+                        let geometry = feature["geometry"]
+                        let coordinates = geometry["coordinates"].array
+                        var depth: Double = 0
+                        var latitude: Double = 0
+                        var longitude: Double = 0
+                        if let coordinates = coordinates {
+                            longitude = Util.toDouble(double: coordinates[0].double)
+                            latitude = Util.toDouble(double: coordinates[1].double)
+                            depth = Util.toDouble(double: coordinates[2].double)
+                        }
+                        let mag = Util.toDouble(double: properties["mag"].double)
+                        let place = Util.toString(string: properties["place"].string)
+                        let time = Util.toDate(int64Value: properties["time"].int64)
+                        let updatedTime = Util.toDate(int64Value: properties["updated"].int64)
+                        let url = Util.toString(string: properties["url"].string)
+                        let detail = Util.toString(string: properties["detail"].string)
+                        let cdi = Util.toDouble(double: properties["cdi"].double)
+                        let mmi = Util.toDouble(double: properties["mmi"].double)
+                        let sig = Util.toInt(int: properties["sig"].int)
+                        let alert = Util.toEarthquakeAlertEnum(value: properties["alert"].string)
+                        let tsunami = Util.toTsunamiEnum(value: properties["tsunami"].int)
+                        let title = Util.toString(string: properties["title"].string)
+                        earthquakes.append(Earthquake(magnitude: mag, place: place, time: time, updatedAt: updatedTime, url: url, detailUrl: detail, cdi: cdi, mmi: mmi, alert: alert, tsunami: tsunami, title: title, sig: sig, latitude: latitude, longitude: longitude, depth: depth))
+                    }
+                    completion(earthquakes, nil)
+                } else {
+                    completion(nil, NSError(domain: "Earthquake", code: 1, userInfo: ["Earthquake":"No Earthquakes found!"]))
+                }
+            case .failure(let error):
+                completion(nil, error)
+            }
+        }
     }
 }

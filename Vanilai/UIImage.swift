@@ -2,14 +2,14 @@
 //  UIImage.swift
 //  Vanilai
 //
-//  Created by Badri Narayanan Ravichandran Sathya on 2/3/17.
-//  Copyright © 2017 Badri Narayanan Ravichandran Sathya. All rights reserved.
+//  Created by Ravichandran Ramachandran on 2/3/17.
+//  Copyright © 2017 Ravichandran Ramachandran. All rights reserved.
 //
 
 import UIKit
 
 extension UIImage {
-    func addText(drawText: NSString, atPoint: CGPoint, textColor: UIColor?, textFont: UIFont?) -> UIImage{
+    func addText(drawText: NSString, atPoint: CGPoint, textColor: UIColor?, textFont: UIFont?) -> UIImage {
         
         // Setup the font specific variables
         var _textColor: UIColor
@@ -66,14 +66,12 @@ extension UIImage {
         return image
     }
     
-    func alpha(_ value:CGFloat)->UIImage
-    {
+    func alpha(_ value:CGFloat)->UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         draw(at: CGPoint.zero, blendMode: .normal, alpha: value)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return newImage!
-        
     }
 
 }

@@ -2,21 +2,19 @@
 //  DrawerController.swift
 //  Vanilai
 //
-//  Created by Badri Narayanan Ravichandran Sathya on 2/4/17.
-//  Copyright © 2017 Badri Narayanan Ravichandran Sathya. All rights reserved.
+//  Created by Ravichandran Ramachandran on 2/4/17.
+//  Copyright © 2017 Racivhandran Ramachandran. All rights reserved.
 //
 
 import UIKit
 import MapKit
 import CoreData
+import GooglePlaces
 
-protocol HandleMapSearch {
-    func selectLocation(coordinate: CLLocationCoordinate2D, name: String)
-}
-
-class DrawerController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+class DrawerController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var drawerTableView: UITableView!
+    @IBOutlet weak var searchLocationTextField: UITextField!
     
     var resultSearchController:UISearchController? = nil
     
@@ -29,37 +27,29 @@ class DrawerController: UIViewController, UITableViewDelegate, UITableViewDataSo
         super.viewDidLoad()
         drawerTableView.delegate = self
         drawerTableView.dataSource = self
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
         
         locationManager.startMonitoringSignificantLocationChanges()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         context = appDelegate.persistentContainer.viewContext
         
-        let locationSearchTable = storyboard!.instantiateViewController(withIdentifier: "LocationSearchTable") as! LocationSearchTable
-        locationSearchTable.handleMapSearchDelegate = self
-        resultSearchController = UISearchController(searchResultsController: locationSearchTable)
-        resultSearchController?.searchResultsUpdater = locationSearchTable
-        
-        let searchBar = resultSearchController!.searchBar
-        searchBar.sizeToFit()
-        searchBar.placeholder = "Search for locations"
-        navigationItem.titleView = resultSearchController?.searchBar
-        
-        resultSearchController?.hidesNavigationBarDuringPresentation = false
-        resultSearchController?.dimsBackgroundDuringPresentation = true
-        definesPresentationContext = true
+        searchLocationTextField.delegate = self
         
         let location = locationManager.location
-        CLGeocoder().reverseGeocodeLocation(location!) { (placemarks, error) in
-            if let placemarks = placemarks {
-                let placemark = placemarks[0]
-                let locality = placemark.locality ?? ""
-                self.addedLocations.insert(AddedLocation(latitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!, name: locality), at: 0)
-                if(self.addedLocations.count>1) {
-                    self.addedLocations.remove(at: 1)
+        if let location = location {
+            CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) in
+                if let placemarks = placemarks {
+                    let placemark = placemarks[0]
+                    let locality = placemark.locality ?? ""
+                    self.addedLocations.insert(AddedLocation(latitude: (location.coordinate.latitude), longitude: (location.coordinate.longitude), name: locality), at: 0)
+                    if(self.addedLocations.count>1) {
+                        self.addedLocations.remove(at: 1)
+                    }
+                    self.drawerTableView.reloadData()
+                } else {
+                    //TODO Error
                 }
-                self.drawerTableView.reloadData()
-            } else {
-                //TODO Error
             }
         }
         
@@ -76,6 +66,18 @@ class DrawerController: UIViewController, UITableViewDelegate, UITableViewDataSo
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
             
+        }
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.resignFirstResponder()
+    }
+    
+    @IBAction func searchLocation(_ sender: Any) {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        present(autocompleteController, animated: true) {
+            self.drawerTableView.reloadData()
         }
     }
     
@@ -103,10 +105,11 @@ class DrawerController: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! LocationCell
         if indexPath.row == 0 {
-            cell.currentLocationImage.image = #imageLiteral(resourceName: "nearMe").imageWithColor(color: .blue)
+            cell.currentLocationImage.image = #imageLiteral(resourceName: "currentLocation").imageWithColor(color: .white)
+        } else {
+            cell.currentLocationImage.isHidden = true
         }
         cell.locationLabel.text = addedLocations[indexPath.row].name
-        print("indexPath: \(indexPath.row)")
         return cell
     }
     
@@ -140,9 +143,11 @@ class DrawerController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
 }
 
-extension DrawerController: HandleMapSearch {
-    func selectLocation(coordinate: CLLocationCoordinate2D, name: String) {
-        let addedLocation = AddedLocation(latitude: coordinate.latitude, longitude: coordinate.longitude, name: name)
+extension DrawerController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        let addedLocation = AddedLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude, name: place.name)
         addedLocations.append(addedLocation)
         let location = Location(location: addedLocation, context: context)
         locations.append(location)
@@ -151,8 +156,27 @@ extension DrawerController: HandleMapSearch {
         } catch let error as NSError{
             print("Could not save. \(error), \(error.userInfo)")
         }
-        
-        
-        drawerTableView.reloadData()
+        self.drawerTableView.reloadData()
+        dismiss(animated: true, completion: nil)
     }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
 }

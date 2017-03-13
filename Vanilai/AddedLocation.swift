@@ -2,8 +2,8 @@
 //  AddedLocation.swift
 //  Vanilai
 //
-//  Created by Badri Narayanan Ravichandran Sathya on 2/4/17.
-//  Copyright © 2017 Badri Narayanan Ravichandran Sathya. All rights reserved.
+//  Created by Ravichandran Ramachandran on 2/4/17.
+//  Copyright © 2017 Ravichandran Ramachandran. All rights reserved.
 //
 
 import Foundation

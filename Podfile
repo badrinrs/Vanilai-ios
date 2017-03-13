@@ -11,7 +11,13 @@ target 'Vanilai' do
   pod 'SwiftyJSON'
   pod 'MMDrawerController', '~> 0.5.7'
   pod 'PermissionScope'
-  
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
+  pod 'GoogleMaps'  
+  pod 'Firebase/Core'
+  pod 'Firebase/AdMob'
+  pod 'Firebase/Crash'
+  pod 'Firebase/Database'
   target 'VanilaiTests' do
     inherit! :search_paths
     # Pods for testing

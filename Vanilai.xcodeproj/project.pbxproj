@@ -21,10 +21,17 @@
 		05015D7C1E42BF470046CA4C /* DailyForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05015D7B1E42BF470046CA4C /* DailyForecast.swift */; };
 		05015D7E1E42BFAB0046CA4C /* DailyForecastData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05015D7D1E42BFAB0046CA4C /* DailyForecastData.swift */; };
 		05015D801E42C6850046CA4C /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05015D7F1E42C6850046CA4C /* Api.swift */; };
-		056579B21E4669C100E194A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 056579B11E4669C100E194A7 /* GoogleService-Info.plist */; };
+		0549561B1E70F69B004DB0F2 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549561A1E70F69B004DB0F2 /* Util.swift */; };
+		0549561E1E710C40004DB0F2 /* EarthquakeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549561D1E710C40004DB0F2 /* EarthquakeController.swift */; };
+		054956201E711B83004DB0F2 /* EarthquakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0549561F1E711B83004DB0F2 /* EarthquakeCell.swift */; };
+		056600001E75CF38004D75BA /* EarthquakePointAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0566FFFF1E75CF37004D75BA /* EarthquakePointAnnotation.swift */; };
+		0566FFF71E7371B6004D75BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0566FFF61E7371B6004D75BA /* GoogleService-Info.plist */; };
+		0566FFF91E738A62004D75BA /* EarthquakeDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0566FFF81E738A62004D75BA /* EarthquakeDetailController.swift */; };
+		0566FFFE1E75BE82004D75BA /* EarthquakeMapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0566FFFD1E75BE7F004D75BA /* EarthquakeMapController.swift */; };
+		05765D811E7621C0008FD9A7 /* earthquake_wall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05765D7F1E7621C0008FD9A7 /* earthquake_wall.jpg */; };
+		05765D821E7621C0008FD9A7 /* tsunami_wall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05765D801E7621C0008FD9A7 /* tsunami_wall.jpg */; };
 		05961A491E46705B0031400E /* DrawerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05961A481E46705B0031400E /* DrawerController.swift */; };
 		05961A511E4676A80031400E /* AddedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05961A501E4676A80031400E /* AddedLocation.swift */; };
-		059BF2361E4682870043FF9B /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BF2351E4682870043FF9B /* LocationSearchTable.swift */; };
 		059BF2381E46E4440043FF9B /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BF2371E46E4440043FF9B /* LocationCell.swift */; };
 		059BF23B1E479E7A0043FF9B /* NewVanilaiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059BF23A1E479E7A0043FF9B /* NewVanilaiViewController.swift */; };
 		059BF2501E496E610043FF9B /* clear-day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 059BF2471E496E610043FF9B /* clear-day.jpg */; };
@@ -47,6 +54,8 @@
 		05CE835B1E459651001BBC81 /* HourlyDailyWeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE835A1E459651001BBC81 /* HourlyDailyWeatherCell.swift */; };
 		05CE835E1E459701001BBC81 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE835D1E459701001BBC81 /* UIImage.swift */; };
 		05CE83601E459C61001BBC81 /* DailyWeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05CE835F1E459C61001BBC81 /* DailyWeatherController.swift */; };
+		05F59CC91E6E7D7900E7B698 /* Earthquake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F59CC81E6E7D7900E7B698 /* Earthquake.swift */; };
+		05F59CCB1E6E829100E7B698 /* EarthquakeAlertEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F59CCA1E6E829100E7B698 /* EarthquakeAlertEnum.swift */; };
 		3C08040CB86D3127C07C5E60 /* Pods_Vanilai.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A81DC7DAAF8F8163F4BD708A /* Pods_Vanilai.framework */; };
 		ABBA43E7C66194B89B04C6D8 /* Pods_VanilaiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CDFEAE7AE016A994808DD01 /* Pods_VanilaiUITests.framework */; };
 		B594BE60CA3790B3084FF7F6 /* Pods_VanilaiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 151130FF36A210CD30F525B8 /* Pods_VanilaiTests.framework */; };
@@ -90,11 +99,18 @@
 		05015D7B1E42BF470046CA4C /* DailyForecast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyForecast.swift; sourceTree = "<group>"; };
 		05015D7D1E42BFAB0046CA4C /* DailyForecastData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyForecastData.swift; sourceTree = "<group>"; };
 		05015D7F1E42C6850046CA4C /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
-		056579B11E4669C100E194A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0549561A1E70F69B004DB0F2 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		0549561D1E710C40004DB0F2 /* EarthquakeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarthquakeController.swift; sourceTree = "<group>"; };
+		0549561F1E711B83004DB0F2 /* EarthquakeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarthquakeCell.swift; sourceTree = "<group>"; };
+		0566FFF61E7371B6004D75BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0566FFF81E738A62004D75BA /* EarthquakeDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarthquakeDetailController.swift; sourceTree = "<group>"; };
+		0566FFFD1E75BE7F004D75BA /* EarthquakeMapController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarthquakeMapController.swift; sourceTree = "<group>"; };
+		0566FFFF1E75CF37004D75BA /* EarthquakePointAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarthquakePointAnnotation.swift; sourceTree = "<group>"; };
+		05765D7F1E7621C0008FD9A7 /* earthquake_wall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = earthquake_wall.jpg; sourceTree = "<group>"; };
+		05765D801E7621C0008FD9A7 /* tsunami_wall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tsunami_wall.jpg; sourceTree = "<group>"; };
 		05961A481E46705B0031400E /* DrawerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawerController.swift; sourceTree = "<group>"; };
 		05961A501E4676A80031400E /* AddedLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddedLocation.swift; sourceTree = "<group>"; };
 		059BF2341E467B380043FF9B /* Vanilai-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Vanilai-Bridging-Header.h"; sourceTree = "<group>"; };
-		059BF2351E4682870043FF9B /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		059BF2371E46E4440043FF9B /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		059BF23A1E479E7A0043FF9B /* NewVanilaiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewVanilaiViewController.swift; sourceTree = "<group>"; };
 		059BF2471E496E610043FF9B /* clear-day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "clear-day.jpg"; sourceTree = "<group>"; };
@@ -117,6 +133,8 @@
 		05CE835A1E459651001BBC81 /* HourlyDailyWeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyDailyWeatherCell.swift; sourceTree = "<group>"; };
 		05CE835D1E459701001BBC81 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		05CE835F1E459C61001BBC81 /* DailyWeatherController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyWeatherController.swift; sourceTree = "<group>"; };
+		05F59CC81E6E7D7900E7B698 /* Earthquake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Earthquake.swift; sourceTree = "<group>"; };
+		05F59CCA1E6E829100E7B698 /* EarthquakeAlertEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarthquakeAlertEnum.swift; sourceTree = "<group>"; };
 		151130FF36A210CD30F525B8 /* Pods_VanilaiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VanilaiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		28ED9AFAEFD85CAFC03B8C24 /* Pods-Vanilai.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Vanilai.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Vanilai/Pods-Vanilai.debug.xcconfig"; sourceTree = "<group>"; };
 		2CDFEAE7AE016A994808DD01 /* Pods_VanilaiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VanilaiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +199,8 @@
 		05015D401E4247570046CA4C /* Vanilai */ = {
 			isa = PBXGroup;
 			children = (
+				0549561C1E70F6A3004DB0F2 /* Util */,
+				05F59CC71E6E7D5200E7B698 /* Earthquake */,
 				059BF2441E480DE10043FF9B /* Images */,
 				05961A4A1E4672480031400E /* Model */,
 				05CE835C1E4596B0001BBC81 /* Extension */,
@@ -215,9 +235,9 @@
 		05015D721E42B8FC0046CA4C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0566FFF61E7371B6004D75BA /* GoogleService-Info.plist */,
 				05015D411E4247570046CA4C /* AppDelegate.swift */,
 				05015D501E42475C0046CA4C /* Info.plist */,
-				056579B11E4669C100E194A7 /* GoogleService-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -246,6 +266,14 @@
 			name = Forecast;
 			sourceTree = "<group>";
 		};
+		0549561C1E70F6A3004DB0F2 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				0549561A1E70F69B004DB0F2 /* Util.swift */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
 		05961A4A1E4672480031400E /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +291,8 @@
 				059BF2591E4976720043FF9B /* thunderstorm-weather.jpg */,
 				059BF2471E496E610043FF9B /* clear-day.jpg */,
 				059BF2481E496E610043FF9B /* clear-night.jpg */,
+				05765D7F1E7621C0008FD9A7 /* earthquake_wall.jpg */,
+				05765D801E7621C0008FD9A7 /* tsunami_wall.jpg */,
 				059BF2491E496E610043FF9B /* cloudy-day.jpg */,
 				059BF24A1E496E610043FF9B /* cloudy-night.jpg */,
 				059BF24B1E496E610043FF9B /* fog.jpg */,
@@ -282,9 +312,11 @@
 				05015D431E4247580046CA4C /* VanilaiViewController.swift */,
 				05CE835F1E459C61001BBC81 /* DailyWeatherController.swift */,
 				05961A481E46705B0031400E /* DrawerController.swift */,
-				059BF2351E4682870043FF9B /* LocationSearchTable.swift */,
 				059BF23A1E479E7A0043FF9B /* NewVanilaiViewController.swift */,
 				059BF2691E4997F50043FF9B /* PermissionViewController.swift */,
+				0549561D1E710C40004DB0F2 /* EarthquakeController.swift */,
+				0566FFF81E738A62004D75BA /* EarthquakeDetailController.swift */,
+				0566FFFD1E75BE7F004D75BA /* EarthquakeMapController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -294,6 +326,7 @@
 			children = (
 				05CE835A1E459651001BBC81 /* HourlyDailyWeatherCell.swift */,
 				059BF2371E46E4440043FF9B /* LocationCell.swift */,
+				0549561F1E711B83004DB0F2 /* EarthquakeCell.swift */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -305,6 +338,16 @@
 				05A2C9291E4AC00F00EFF334 /* UIViewController.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		05F59CC71E6E7D5200E7B698 /* Earthquake */ = {
+			isa = PBXGroup;
+			children = (
+				05F59CC81E6E7D7900E7B698 /* Earthquake.swift */,
+				05F59CCA1E6E829100E7B698 /* EarthquakeAlertEnum.swift */,
+				0566FFFF1E75CF37004D75BA /* EarthquakePointAnnotation.swift */,
+			);
+			name = Earthquake;
 			sourceTree = "<group>";
 		};
 		DD59F7B4A866BCD65A78B182 /* Frameworks */ = {
@@ -407,7 +450,6 @@
 				TargetAttributes = {
 					05015D3D1E4247570046CA4C = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = XVKRTN7XC3;
 						ProvisioningStyle = Automatic;
 					};
 					05015D541E42475C0046CA4C = {
@@ -452,17 +494,19 @@
 				059BF2561E496E610043FF9B /* rainy-night.jpg in Resources */,
 				059BF25C1E4976A40043FF9B /* tornado-weather.jpg in Resources */,
 				059BF2521E496E610043FF9B /* cloudy-day.jpg in Resources */,
+				0566FFF71E7371B6004D75BA /* GoogleService-Info.plist in Resources */,
 				05015D4F1E42475C0046CA4C /* LaunchScreen.storyboard in Resources */,
 				059BF2501E496E610043FF9B /* clear-day.jpg in Resources */,
 				059BF2541E496E610043FF9B /* fog.jpg in Resources */,
 				059BF2551E496E610043FF9B /* rainy-day.jpg in Resources */,
+				05765D811E7621C0008FD9A7 /* earthquake_wall.jpg in Resources */,
 				05015D4C1E42475B0046CA4C /* Assets.xcassets in Resources */,
+				05765D821E7621C0008FD9A7 /* tsunami_wall.jpg in Resources */,
 				059BF2581E496E610043FF9B /* windy-day.jpg in Resources */,
 				05015D471E4247590046CA4C /* Main.storyboard in Resources */,
 				059BF2511E496E610043FF9B /* clear-night.jpg in Resources */,
 				059BF2531E496E610043FF9B /* cloudy-night.jpg in Resources */,
 				059BF2571E496E610043FF9B /* snow-day.jpg in Resources */,
-				056579B21E4669C100E194A7 /* GoogleService-Info.plist in Resources */,
 				059BF25A1E4976720043FF9B /* thunderstorm-weather.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,8 +672,10 @@
 			files = (
 				05015D801E42C6850046CA4C /* Api.swift in Sources */,
 				05CE835B1E459651001BBC81 /* HourlyDailyWeatherCell.swift in Sources */,
+				0549561E1E710C40004DB0F2 /* EarthquakeController.swift in Sources */,
 				05015D7C1E42BF470046CA4C /* DailyForecast.swift in Sources */,
 				05961A511E4676A80031400E /* AddedLocation.swift in Sources */,
+				05F59CCB1E6E829100E7B698 /* EarthquakeAlertEnum.swift in Sources */,
 				05CE83601E459C61001BBC81 /* DailyWeatherController.swift in Sources */,
 				05015D441E4247580046CA4C /* VanilaiViewController.swift in Sources */,
 				05A2C92A1E4AC00F00EFF334 /* UIViewController.swift in Sources */,
@@ -637,16 +683,21 @@
 				05015D751E42BA3A0046CA4C /* VanilaiConstants.swift in Sources */,
 				059BF2681E4992DB0043FF9B /* Location+CoreDataProperties.swift in Sources */,
 				059BF2671E4992DB0043FF9B /* Location+CoreDataClass.swift in Sources */,
+				054956201E711B83004DB0F2 /* EarthquakeCell.swift in Sources */,
+				056600001E75CF38004D75BA /* EarthquakePointAnnotation.swift in Sources */,
+				05F59CC91E6E7D7900E7B698 /* Earthquake.swift in Sources */,
 				059BF23B1E479E7A0043FF9B /* NewVanilaiViewController.swift in Sources */,
 				05015D7A1E42BE5D0046CA4C /* HourlyForecast.swift in Sources */,
 				05015D4A1E42475B0046CA4C /* Vanilai.xcdatamodeld in Sources */,
+				0566FFF91E738A62004D75BA /* EarthquakeDetailController.swift in Sources */,
 				05CE83531E42E21E001BBC81 /* ForecastAlert.swift in Sources */,
 				05015D7E1E42BFAB0046CA4C /* DailyForecastData.swift in Sources */,
-				059BF2361E4682870043FF9B /* LocationSearchTable.swift in Sources */,
 				05961A491E46705B0031400E /* DrawerController.swift in Sources */,
 				059BF26A1E4997F50043FF9B /* PermissionViewController.swift in Sources */,
 				05015D781E42BD190046CA4C /* Forecast.swift in Sources */,
+				0566FFFE1E75BE82004D75BA /* EarthquakeMapController.swift in Sources */,
 				05CE835E1E459701001BBC81 /* UIImage.swift in Sources */,
+				0549561B1E70F69B004DB0F2 /* Util.swift in Sources */,
 				059BF2381E46E4440043FF9B /* LocationCell.swift in Sources */,
 				05CE83571E456153001BBC81 /* HourlyForecastData.swift in Sources */,
 			);
@@ -801,10 +852,11 @@
 			baseConfigurationReference = 28ED9AFAEFD85CAFC03B8C24 /* Pods-Vanilai.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XVKRTN7XC3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Vanilai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.madri.Vanilai;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haridh.weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -815,10 +867,11 @@
 			baseConfigurationReference = A4EA994E25243CA1126A190B /* Pods-Vanilai.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = XVKRTN7XC3;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Vanilai/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.madri.Vanilai;
+				PRODUCT_BUNDLE_IDENTIFIER = com.haridh.weather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
